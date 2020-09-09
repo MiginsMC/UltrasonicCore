@@ -1,4 +1,4 @@
-package me.mig.ultrasoniccore;
+package me.mig.ultrasoniccore.events;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

@@ -1,5 +1,9 @@
 package me.mig.ultrasoniccore;
 
+import me.mig.ultrasoniccore.commands.Reload;
+import me.mig.ultrasoniccore.commands.Suicide;
+import me.mig.ultrasoniccore.commands.Teleport;
+import me.mig.ultrasoniccore.events.SleepEvent;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;

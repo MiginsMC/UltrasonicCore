@@ -1,4 +1,4 @@
-package me.mig.ultrasoniccore;
+package me.mig.ultrasoniccore.commands;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
