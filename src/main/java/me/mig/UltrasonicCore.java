@@ -59,7 +59,7 @@ public class UltrasonicCore extends JavaPlugin {
         try {
             String token = this.getConfig().getString("token");
             if (token != null) {
-                jda = JDABuilder.createDefault("NzQ1OTE1MTUzMTY5NTE0NTQx.Xz4tng.pRGL_x2GtlWA_7zPlys42KIMfOU")
+                jda = JDABuilder.createDefault(token)
                         //.addEventListeners(new MessageEvent())
                         //.addEventListeners(new ErrorEvent())
                         .setActivity(Activity.watching("my children"))
