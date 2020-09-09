@@ -1,4 +1,4 @@
-package me.mig;
+package me.mig.ultrasoniccore;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Location;

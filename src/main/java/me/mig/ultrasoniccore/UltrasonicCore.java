@@ -1,4 +1,4 @@
-package me.mig;
+package me.mig.ultrasoniccore;
 
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
@@ -47,7 +47,6 @@ public class UltrasonicCore extends JavaPlugin {
         } else {
             System.out.println("Bot didn't start :(");
         }
-
     }
 
     @Override
@@ -60,8 +59,6 @@ public class UltrasonicCore extends JavaPlugin {
             String token = this.getConfig().getString("token");
             if (token != null) {
                 jda = JDABuilder.createDefault(token)
-                        //.addEventListeners(new MessageEvent())
-                        //.addEventListeners(new ErrorEvent())
                         .setActivity(Activity.watching("my children"))
                         //.enableIntents(GatewayIntent.GUILD_MEMBERS)
                         .build();
@@ -75,8 +72,5 @@ public class UltrasonicCore extends JavaPlugin {
                 e.printStackTrace();
                 return false;
             }
-
     }
-
-
 }

@@ -12,3 +12,6 @@ commands:
   teleport:
     aliases: tp
     usage: /teleport (<player> [another player]|coordinates)
+  reload:
+    usage: /reload
+    
