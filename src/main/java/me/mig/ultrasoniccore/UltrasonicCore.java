@@ -39,6 +39,7 @@ public class UltrasonicCore extends JavaPlugin {
                     }
                     online.append(player.getDisplayName());
                 }
+
                 TextChannel tc = jda.getTextChannelById("748466123548393475");
                 assert tc != null;
                 if (Bukkit.getOnlinePlayers().size() > 0) {
@@ -72,7 +73,7 @@ public class UltrasonicCore extends JavaPlugin {
                 System.out.println("Token not entered in config file");
                 return false;
             }
-            } catch(LoginException e){
+            } catch (LoginException e){
                 e.printStackTrace();
                 return false;
             }
