@@ -51,6 +51,8 @@ public class UltrasonicCore extends JavaPlugin {
                     System.out.print("Channel id not present :(");
                 } else {
                     TextChannel tc = jda.getTextChannelById(channelID);
+                    // does this even work?!
+                    assert tc != null;
 
                     Consumer<List<Message>> callback = (response) -> {
                         System.out.println(response);
