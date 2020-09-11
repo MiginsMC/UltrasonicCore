@@ -8,7 +8,6 @@ import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.*;
-import org.apache.commons.lang.math.RandomUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -16,9 +15,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 import javax.security.auth.login.LoginException;
 import java.awt.*;
 import java.time.Instant;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
-import java.util.Random;
 import java.util.function.Consumer;
 
 public class UltrasonicCore extends JavaPlugin {
@@ -110,11 +109,11 @@ public class UltrasonicCore extends JavaPlugin {
         EmbedBuilder eb = new EmbedBuilder();
         int players = Bukkit.getOnlinePlayers().size();
 
-
         eb.setTitle("Server Stats")
         .setColor(Color.CYAN)
         .addField("Players Online (" + players + ")", players > 0 ? online.toString() : "No ones here :(", true)
-//        eb.addField("TPS (Ticks Per Second)", this.getServer().ticksper)
+
+        .addField("TPS (Ticks Per Second) from last 1m, 5m, 15m", String.join(" ", Arrays.toString(Bukkit.getTPS())), true)
         .setFooter("caryl sees all", jda.getSelfUser().getAvatarUrl())
         .setTimestamp(Instant.now());
        return eb.build();
