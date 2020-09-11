@@ -46,35 +46,36 @@ public class UltrasonicCore extends JavaPlugin {
                     }
                     online.append(player.getDisplayName());
                 }
+                String channelID = getConfig().getString("channel");
+                if (channelID == null) {
+                    System.out.print("Channel id not present :(");
+                } else {
+                    TextChannel tc = jda.getTextChannelById(channelID);
 
-                TextChannel tc = jda.getTextChannelById("748466123548393475");
-
-                // Apparently this does nothing lol
-                assert tc != null;
-
-                Consumer<List<Message>> callback = (response) -> {
-                    System.out.println(response);
-                    Message contains = null;
-                    for (Message m : response) {
-                        if (m.getEmbeds().size() > 0) {
-                            System.out.println("Found an embed :O");
-                            contains = m;
-                            break;
+                    Consumer<List<Message>> callback = (response) -> {
+                        System.out.println(response);
+                        Message contains = null;
+                        for (Message m : response) {
+                            if (m.getEmbeds().size() > 0) {
+                                System.out.println("Found an embed :O");
+                                contains = m;
+                                break;
+                            }
                         }
-                    }
-                    if (contains != null) {
-                        System.out.println("Editing");
-                        contains.editMessage(getEmbed(online)).queue();
-                    } else {
-                        System.out.println("Sending");
-                        tc.sendMessage(getEmbed(online)).queue();
-                    }
+                        if (contains != null) {
+                            System.out.println("Editing");
+                            contains.editMessage(getEmbed(online)).queue();
+                        } else {
+                            System.out.println("Sending");
+                            tc.sendMessage(getEmbed(online)).queue();
+                        }
 
-                };
-                // Executes callback, above happens after the messages have been retrieved.
-                tc.getHistory().retrievePast(30).queue(callback);
-
+                    };
+                    // Executes callback, above happens after the messages have been retrieved.
+                    tc.getHistory().retrievePast(30).queue(callback);
+                }
             }, 100L, 2000L);
+
         } else {
             System.out.println("Bot didn't start :(");
         }
