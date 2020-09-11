@@ -57,20 +57,16 @@ public class UltrasonicCore extends JavaPlugin {
                     assert tc != null;
 
                     Consumer<List<Message>> callback = (response) -> {
-                        System.out.println(response);
                         Message contains = null;
                         for (Message m : response) {
                             if (m.getEmbeds().size() > 0) {
-                                System.out.println("Found an embed :O");
                                 contains = m;
                                 break;
                             }
                         }
                         if (contains != null) {
-                            System.out.println("Editing");
                             contains.editMessage(getEmbed(online)).queue();
                         } else {
-                            System.out.println("Sending");
                             tc.sendMessage(getEmbed(online)).queue();
                         }
 
@@ -78,7 +74,7 @@ public class UltrasonicCore extends JavaPlugin {
                     // Executes callback, above happens after the messages have been retrieved.
                     tc.getHistory().retrievePast(30).queue(callback);
                 }
-            }, 100L, 2000L);
+            }, 100L, 200L);
 
         } else {
             System.out.println("Bot didn't start :(");
