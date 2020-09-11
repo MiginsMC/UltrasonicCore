@@ -14,8 +14,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import javax.security.auth.login.LoginException;
 import java.awt.*;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.Instant;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.function.Consumer;
@@ -112,13 +114,29 @@ public class UltrasonicCore extends JavaPlugin {
         EmbedBuilder eb = new EmbedBuilder();
         int players = Bukkit.getOnlinePlayers().size();
 
+        double[] tps = Bukkit.getTPS();
+        List<String> rounded = new ArrayList<>();
+        for (double x : tps) {
+            double r = round(x, 2);
+            rounded.add(Double.toString(r));
+        }
+//        System.out.println("Rounded TPS values: " + Arrays.toString(rounded));
+
         eb.setTitle("Server Stats")
         .setColor(Color.CYAN)
         .addField("Players Online (" + players + ")", players > 0 ? online.toString() : "No ones here :(", true)
 
-        .addField("TPS (Ticks Per Second) from last 1m, 5m, 15m", String.join(" ", Arrays.toString(Bukkit.getTPS())), true)
+        .addField("TPS from last 1m, 5m, 15m", String.join(" ", rounded), true)
         .setFooter("caryl sees all", jda.getSelfUser().getAvatarUrl())
         .setTimestamp(Instant.now());
        return eb.build();
+    }
+
+    public static double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        BigDecimal bd = BigDecimal.valueOf(value);
+        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
 }
