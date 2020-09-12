@@ -123,7 +123,7 @@ public class UltrasonicCore extends JavaPlugin {
         .setColor(Color.CYAN)
         .addField("Players Online (" + players + ")", players > 0 ? online.toString() : "No ones here :(", true)
 
-        .addField("TPS from last 1m, 5m, 15m", String.join(" ", rounded), true)
+        .addField("TPS from last 1m, 5m, 15m", String.join(", ", rounded), true)
         .setFooter("caryl sees all", jda.getSelfUser().getAvatarUrl())
         .setTimestamp(Instant.now());
        return eb.build();
