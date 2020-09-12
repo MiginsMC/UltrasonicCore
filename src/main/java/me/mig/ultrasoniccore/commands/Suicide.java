@@ -1,14 +1,14 @@
 package me.mig.ultrasoniccore.commands;
 
-import org.bukkit.Bukkit;
+//import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
+//import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.metadata.FixedMetadataValue;
+//import org.bukkit.event.entity.PlayerDeathEvent;
+//import org.bukkit.metadata.FixedMetadataValue;
 
 public class Suicide implements CommandExecutor, Listener {
 

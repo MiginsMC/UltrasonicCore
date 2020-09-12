@@ -92,7 +92,6 @@ public class UltrasonicCore extends JavaPlugin {
             if (token != null) {
                 jda = JDABuilder.createDefault(token)
                         .setActivity(Activity.watching("my children"))
-                        //.enableIntents(GatewayIntent.GUILD_MEMBERS)
                         .build();
                 System.out.println("Bot has started :)");
                 return true;
@@ -100,13 +99,13 @@ public class UltrasonicCore extends JavaPlugin {
                 System.out.println("Token not entered in config file");
                 return false;
             }
-            } catch (LoginException e){
+            } catch (LoginException e) {
                 e.printStackTrace();
                 return false;
             }
     }
 
-    public MessageEmbed getEmbed(StringBuilder online) {
+    public static MessageEmbed getEmbed(StringBuilder online) {
         EmbedBuilder eb = new EmbedBuilder();
         int players = Bukkit.getOnlinePlayers().size();
 
@@ -116,7 +115,7 @@ public class UltrasonicCore extends JavaPlugin {
             double r = round(x, 2);
             rounded.add(Double.toString(r));
         }
-//        System.out.println("Rounded TPS values: " + Arrays.toString(rounded));
+        // change to string builder lol ^
 
         eb.setTitle("Server Stats")
         .setColor(Color.CYAN)
