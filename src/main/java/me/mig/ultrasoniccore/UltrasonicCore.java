@@ -110,12 +110,11 @@ public class UltrasonicCore extends JavaPlugin {
         int players = Bukkit.getOnlinePlayers().size();
 
         double[] tps = Bukkit.getTPS();
-        List<String> rounded = new ArrayList<>();
+        StringBuilder rounded = new StringBuilder();
         for (double x : tps) {
             double r = round(x, 2);
-            rounded.add(Double.toString(r));
+            rounded.append(r);
         }
-        // change to string builder lol ^
 
         eb.setTitle("Server Stats")
         .setColor(Color.CYAN)
