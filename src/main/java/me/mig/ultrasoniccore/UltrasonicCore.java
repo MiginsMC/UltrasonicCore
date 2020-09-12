@@ -46,7 +46,10 @@ public class UltrasonicCore extends JavaPlugin {
                     if (online.length() > 0) {
                         online.append(", ");
                     }
-                    online.append(player.getDisplayName());
+                    String s = player.getDisplayName();
+                    s = s.replaceAll("_", "\\_");
+
+                    online.append(s);
                 }
                 String channelID = getConfig().getString("channel");
                 if (channelID == null) {
