@@ -17,6 +17,7 @@ import java.awt.*;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.function.Consumer;
@@ -112,10 +113,10 @@ public class UltrasonicCore extends JavaPlugin {
         int players = Bukkit.getOnlinePlayers().size();
 
         double[] tps = Bukkit.getTPS();
-        StringBuilder rounded = new StringBuilder();
+       ArrayList<String> rounded = new ArrayList();
         for (double x : tps) {
             double r = round(x, 2);
-            rounded.append(r);
+            rounded.add(Double.toString(r));
         }
 
         eb.setTitle("Server Stats")
