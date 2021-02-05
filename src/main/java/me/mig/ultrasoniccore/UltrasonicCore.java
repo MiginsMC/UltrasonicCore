@@ -53,7 +53,7 @@ public class UltrasonicCore extends JavaPlugin {
                 }
                 String channelID = getConfig().getString("channel");
                 if (channelID == null) {
-                    System.out.print("Channel id not present :(");
+                    System.out.println("Channel id not present :(");
                 } else {
                     TextChannel tc = jda.getTextChannelById(channelID);
                     // does this even work?!
